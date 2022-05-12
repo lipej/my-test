@@ -37,6 +37,10 @@ export class User {
     this._hash = value;
   }
 
+  get hash() {
+    return this._hash as string
+  }
+
   hashMatch = (value: string) => this._hash === value;
 
   isActive = () => this._active ?? false;
