@@ -10,6 +10,8 @@ export class User {
   readonly username: string;
   readonly email: string;
   readonly password: string;
+  private _active?: boolean;
+  private _hash?: string;
 
   constructor(params: Params) {
     this.name = params.name;
@@ -18,10 +20,24 @@ export class User {
     this.password = params.password;
   }
 
-  validate(param: 'email' | 'password') {
+  validate(param: "email" | "password") {
     return {
-      password: () => /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}$/.test(this.password),
-      email: () => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)
+      password: () =>
+        /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}$/.test(this.password),
+      email: () =>
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email),
     }[param]();
   }
+
+  set active(value: boolean) {
+    this._active = value;
+  }
+
+  set hash(value: string) {
+    this._hash = value;
+  }
+
+  hashMatch = (value: string) => this._hash === value;
+
+  isActive = () => this._active ?? false;
 }

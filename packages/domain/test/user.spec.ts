@@ -50,4 +50,31 @@ describe(User.name, () => {
 
     expect(user.validate('email')).toBe(expected);
   });
+
+  it('should active a user', () => {
+    const user = new User({
+      name: 'John Doe',
+      username: 'johndoe',
+      email: 'johndoe@gmail.com',
+      password: 'Mypass123'
+    });
+
+    user.active = true;
+
+    expect(user.isActive()).toBe(true)
+  })
+
+  it('should set activation hash ans validate', () => {
+    const user = new User({
+      name: 'John Doe',
+      username: 'johndoe',
+      email: 'johndoe@gmail.com',
+      password: 'Mypass123'
+    });
+
+    user.hash = 'my_secure_hash'
+
+    expect(user.hashMatch('any')).toBe(false)
+    expect(user.hashMatch('my_secure_hash')).toBe(true)
+  })
 });
