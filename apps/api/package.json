@@ -39,7 +39,9 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
+    "@prisma/client": "^3.14.0",
     "@sentry/node": "^6.19.3",
+    "domain": "workspace:*",
     "dotenv": "^16.0.1",
     "fastify": "^3.27.4",
     "pino": "^7.9.2"
