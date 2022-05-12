@@ -1,0 +1,6 @@
+/*.ts
+/*.json
+/*.js
+node_modules/
+dist/
+test/

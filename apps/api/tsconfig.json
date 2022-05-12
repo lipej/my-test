@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "dist",
+    "target": "es6",
+    "esModuleInterop": true,
+    "rootDir": ".",
+    "baseUrl": ".",
+    "pretty": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "@main/*": ["./src/main/*"],
+      "@test/*": ["./test/*"],
+      "@presentation/*": ["./src/presentation/*"],
+      "@app/*": ["./src/application/*"],
+      "@domain/*": ["./src/domain/*"]
+    }
+  },
+  "include": ["./src", "./test"],
+  "exclude": ["node_modules"]
+}
