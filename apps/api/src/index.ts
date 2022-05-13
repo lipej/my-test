@@ -15,6 +15,10 @@ server.setErrorHandler(async (error, _request, reply) => {
   reply.status(500).send({ error: error.message })
 })
 
+server.register(require('@fastify/jwt'), {
+  secret: process.env.JWT_SECRET as string
+})
+
 server.listen(getEnv('port'), '0.0.0.0', function (err) {
   if (err) {
     server.log.error(err)

@@ -11,7 +11,8 @@ export class UserPrismaRepository implements UserRepository {
         email: user.email,
         name: user.name,
         password: user.password,
-        username: user.username
+        username: user.username,
+        activationHash: user.hash
       }
     });
 
@@ -31,9 +32,21 @@ export class UserPrismaRepository implements UserRepository {
   }
 
   async active(user: User) {
-    await this.db.user.update({ where: { username: user.username, email: user.email }, data: { active: true } });
+    await this.db.user.update({ where: { email: user.email }, data: { active: true } });
   }
 
-  private generateEntity = (data: PrismaUser | null) =>
-    data ? new User({ email: data.email, password: data.password, name: data.name, username: data.username }) : null;
+  private generateEntity = (data: PrismaUser | null) => {
+    if (data) {
+      const user = new User({ email: data.email, password: data.password, name: data.name, username: data.username });
+
+      user.active = data.active;
+
+      if (data.activationHash) {
+        user.hash = data.activationHash;
+      }
+
+      return user;
+    }
+    return null;
+  };
 }
