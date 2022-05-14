@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  db:
+    image: "docker.io/bitnami/mysql:latest"
+    ports:
+      - "3306:3306"
+    volumes:
+      - "mysql_data:/bitnami/mysql"
+    environment:
+      - "ALLOW_EMPTY_PASSWORD=yes"
+
+  db-test:
+    image: "docker.io/bitnami/mysql:latest"
+    ports:
+      - "3306:3306"
+    volumes:
+      - "mysql_test:/bitnami/mysql"
+    environment:
+      - "ALLOW_EMPTY_PASSWORD=yes"
+
+volumes:
+  mysql_data:
+    driver: local
+  mysql_test:
+    driver: local
