@@ -11,7 +11,7 @@ export class UserDataController implements Controller<Params> {
 
   async handle(params: Params) {
     try {
-      return GenerateResponse.success(await this.userDataUseCase.execute(params));
+      return GenerateResponse.success({ ...(await this.userDataUseCase.execute(params)), password: undefined, _hash: undefined, _active: undefined});
     } catch (err) {
       return GenerateResponse.error(err as Error);
     }

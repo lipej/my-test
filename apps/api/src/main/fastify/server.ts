@@ -3,7 +3,7 @@ import { setupRoutes } from './routes'
 
 export const setupServer = () => {
   const fastifyServer = Fastify({
-    logger: false
+    logger: true
   })
 
   setupRoutes(fastifyServer)

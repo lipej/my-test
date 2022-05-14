@@ -1,0 +1,33 @@
+name: 'Test'
+
+on: pull_request
+
+jobs:
+  run:
+    runs-on: ubuntu-20.04
+
+    services:
+      loyalty_db:
+        image: 'docker.io/bitnami/mongodb:latest'
+        env:
+          ALLOW_EMPTY_PASSWORD: yes
+        ports:
+          - 3006:3006
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Prisma deploy
+        run: npx dotenv -e .env.test -- prisma migrate deploy
+
+      - name: Run Tests
+        run: npm run test
