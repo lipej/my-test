@@ -71,7 +71,11 @@ Para rodar esse projeto crie um arquivo .env com as seguintes váriaveis configu
 
 `FRONT_URL`url de front para envio correto dos emails
 
-`NODE_ENV` ambiente em que o serviço está rodando
+`NODE_ENV` ambiente do node = production/development
+
+`RUNNING_ENV` ambiente em que o serviço está rodando ex: production/staging
+
+`SENTRY_DSN` ambiente em que o serviço está rodando
 
 ## API Reference
 
