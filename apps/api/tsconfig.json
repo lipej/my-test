@@ -15,7 +15,6 @@
       "@test/*": ["./test/*"],
       "@presentation/*": ["./src/presentation/*"],
       "@app/*": ["./src/application/*"],
-      "@domain/*": ["./src/domain/*"],
       "@infra/*": ["./src/infra/*"]
     }
   },

@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+  db:
+    image: "zanox/mysql"
+    ports:
+      - "3306:3306"
+    volumes:
+      - "mysql_data:/bitnami/mysql"
+    environment:
+      - "ALLOW_EMPTY_PASSWORD=yes"
+
+  prisma-migrate:
+    container_name: prisma-migrate
+    build:
+      context: ./apps/api/prisma
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: mysql://root@my-test_db_1:3306/mydb?schema=public
+    depends_on:
+      - db
+
+  app:
+    container_name: my-test-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+      - "4001:4001"
+    environment:
+       ALLOW_EMPTY_PASSWORD: "yes"
+       DATABASE_URL: mysql://root@my-test_db_1:3306/mydb?schema=public
+       JWT_SECRET: any_secret
+       CRYPT_SECRET: my_super_secret
+       SENDGRID_KEY: SG.123.123-123
+       SENDGRID_FROM: sendgrid@email
+       FRONT_URL: http://localhost:3000
+       NODE_ENV: prod
+       RUNNING_ENV: prod
+       SENTRY_DSN: https://355cb5417196404d824eea6188854add@o863329.ingest.sentry.io/6180559
+    depends_on: 
+      - prisma-migrate
+
+volumes:
+  mysql_data:
+    driver: local

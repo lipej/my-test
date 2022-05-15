@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint *.ts*",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/jest": "^27.5.1",

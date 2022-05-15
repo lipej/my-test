@@ -13,7 +13,6 @@ export class UserCreationController implements Controller<Params> {
   constructor(private userCreationUseCase: UserCreationUseCase) {}
 
   async handle(params: Params) {
-    console.log({params})
     try {
       await this.userCreationUseCase.execute(params)
       return GenerateResponse.success({});

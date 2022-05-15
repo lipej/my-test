@@ -48,7 +48,7 @@ Pronto, todos os serviços devem estar Rodando
 
 FRONT -> PORTA -> 3000
 
-BACK -> PORTA -> 4500
+BACK -> PORTA -> 4001
 
 
 ## Testes

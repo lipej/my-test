@@ -12,6 +12,9 @@
     },
     "test": {
       "cache": true
+    },
+    "prod": {
+      "cache": false
     }
   }
 }

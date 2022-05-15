@@ -5,13 +5,18 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { setCookies } from 'cookies-next';
 
+type LoginData = {
+  username: string
+  password: string
+}
+
 export default function Signup() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: LoginData) => {
     try {
       const result = await axios.post("http://localhost:4001/login", data, {
         headers: {
@@ -34,7 +39,7 @@ export default function Signup() {
       <NavBar title='MyTest' />
       <Toaster />
       <div className='flex justify-center items-center h-screen'>
-        <form className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
+        <form className='flex flex-col' onSubmit={handleSubmit(onSubmit as any)}>
           <Input
             register={register("username", { required: true })}
             prop='username'

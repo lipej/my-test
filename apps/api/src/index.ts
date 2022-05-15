@@ -2,11 +2,11 @@ import { getEnv } from '@app/config'
 import { setupServer } from '@main/fastify'
 import * as Sentry from '@sentry/node'
 
-// Sentry.init({
-//   dsn: getEnv('sentryDsn'),
-//   enabled: getEnv('nodeEnv') !== 'test',
-//   environment: getEnv('runningEnv')
-// })
+Sentry.init({
+  dsn: getEnv('sentryDsn'),
+  enabled: getEnv('nodeEnv') !== 'test',
+  environment: getEnv('runningEnv')
+})
 
 const server = setupServer()
 
