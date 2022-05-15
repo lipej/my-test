@@ -9,7 +9,7 @@ export class GenerateResponse {
     status: 200,
     data
   });
-  
+
   static error(error: Error) {
     if (error instanceof UserNotFound) {
       return { status: 404, message: error.message };

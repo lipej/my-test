@@ -3,12 +3,12 @@ import Input from "../components/input";
 import NavBar from "../components/navbar";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
-import { setCookies } from 'cookies-next';
+import { setCookies } from "cookies-next";
 
 type LoginData = {
-  username: string
-  password: string
-}
+  username: string;
+  password: string;
+};
 
 export default function Signup() {
   const {
@@ -26,7 +26,7 @@ export default function Signup() {
 
       toast.success("Login Realizado! Aguarde o redirecionamento!");
 
-      setCookies('token', result.data);
+      setCookies("token", result.data);
 
       setTimeout(() => window.location.replace("/secure/user"), 2000);
     } catch (e) {
@@ -36,27 +36,30 @@ export default function Signup() {
 
   return (
     <>
-      <NavBar title='MyTest' />
+      <NavBar title="MyTest" />
       <Toaster />
-      <div className='flex justify-center items-center h-screen'>
-        <form className='flex flex-col' onSubmit={handleSubmit(onSubmit as any)}>
+      <div className="flex justify-center items-center h-screen">
+        <form
+          className="flex flex-col"
+          onSubmit={handleSubmit(onSubmit as any)}
+        >
           <Input
             register={register("username", { required: true })}
-            prop='username'
+            prop="username"
             error={errors.name ? "Por favor entre com o seu usuário" : null}
-            name='usuário'
+            name="usuário"
           />
           <Input
             register={register("password", {
               required: true,
               pattern: /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}$/,
             })}
-            prop='password'
-            name='senha'
-            type='password'
+            prop="password"
+            name="senha"
+            type="password"
           />
 
-          <input className='btn btn-sm mt-2' type='submit' />
+          <input className="btn btn-sm mt-2" type="submit" />
         </form>
       </div>
     </>

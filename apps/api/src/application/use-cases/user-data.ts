@@ -17,6 +17,6 @@ export class UserDataUseCase {
 
     if (!user.isActive()) throw new InactiveUser();
 
-    return user
+    return user;
   }
 }

@@ -20,7 +20,7 @@ describe(UserDataUseCase.name, () => {
   const validHash = cryptoService.encrypt('validHash');
 
   beforeEach(async () => {
-    await db.user.deleteMany(); 
+    await db.user.deleteMany();
   });
 
   afterAll(async () => {
@@ -40,19 +40,18 @@ describe(UserDataUseCase.name, () => {
   it('should thorow error if user is not active', async () => {
     const { username } = await createUser(validHash, db, cryptoService, false);
 
-    const promise =  useCase.execute({
+    const promise = useCase.execute({
       username
     });
 
     await expect(promise).rejects.toThrow(new InactiveUser());
-  })
+  });
 
   it('should thorow error if user was not found', async () => {
-    const promise =  useCase.execute({
+    const promise = useCase.execute({
       username: 'any'
     });
 
     await expect(promise).rejects.toThrow(new UserNotFound());
-  })
-
+  });
 });

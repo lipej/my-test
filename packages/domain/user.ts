@@ -38,7 +38,7 @@ export class User {
   }
 
   get hash() {
-    return this._hash as string
+    return this._hash as string;
   }
 
   hashMatch = (value: string) => this._hash === value;

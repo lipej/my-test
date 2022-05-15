@@ -2,11 +2,9 @@
 
 Esse projeto full stack implementa uma aplicação para cadastro e ativação de usuários.
 
-
 ## Authors
 
 - [@lipejose](https://www.github.com/lipejose)
-
 
 ## Tech Stack
 
@@ -14,8 +12,7 @@ Esse projeto full stack implementa uma aplicação para cadastro e ativação de
 
 **Server:** Node, Fastify, Prisma, MySQL
 
-**project*** pnpm, turbo repo, typescript
-
+**project\*** pnpm, turbo repo, typescript
 
 ## Rodando o projeto
 
@@ -31,7 +28,7 @@ Entre no diretorio do projeto
   cd my-test
 ```
 
-Instale as dependencias 
+Instale as dependencias
 Para instalar esse projeto você precisa utilizar o pnpm, caso não tenha instalado é só rodar npm i -g pnpm após isso, rode:
 
 ```bash
@@ -50,7 +47,6 @@ FRONT -> PORTA -> 3000
 
 BACK -> PORTA -> 4001
 
-
 ## Testes
 
 Para rodar os testes digite no terminal:
@@ -58,7 +54,6 @@ Para rodar os testes digite no terminal:
 ```bash
   pnpm run test
 ```
-
 
 ## Váriaveis de ambiente
 
@@ -77,6 +72,7 @@ Para rodar esse projeto crie um arquivo .env com as seguintes váriaveis configu
 `FRONT_URL`url de front para envio correto dos emails
 
 `NODE_ENV` ambiente em que o serviço está rodando
+
 ## API Reference
 
 #### Get an user
@@ -85,9 +81,9 @@ Para rodar esse projeto crie um arquivo .env com as seguintes váriaveis configu
   GET /user
 ```
 
-| Parameter | Type     |
-| :-------- | :------- |
-| `email` | `string` |
+| Parameter  | Type     |
+| :--------- | :------- |
+| `email`    | `string` |
 | `username` | `string` |
 | `password` | `string` |
 
@@ -97,12 +93,12 @@ Para rodar esse projeto crie um arquivo .env com as seguintes váriaveis configu
   POST /user
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `name`      | `string` | **Required**. Nome completo|
-| `username`      | `string` | **Required**. Nome de usuário |
-| `password`      | `string` | **Required**. Senha de acesso |
-| `email`      | `string` | **Required**. Email |
+| Parameter  | Type     | Description                   |
+| :--------- | :------- | :---------------------------- |
+| `name`     | `string` | **Required**. Nome completo   |
+| `username` | `string` | **Required**. Nome de usuário |
+| `password` | `string` | **Required**. Senha de acesso |
+| `email`    | `string` | **Required**. Email           |
 
 #### Login user
 
@@ -110,11 +106,10 @@ Para rodar esse projeto crie um arquivo .env com as seguintes váriaveis configu
   POST /login
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `username`      | `string` | **Required**. Nome de usuário |
-| `password`      | `string` | **Required**. Senha de acesso |
-
+| Parameter  | Type     | Description                   |
+| :--------- | :------- | :---------------------------- |
+| `username` | `string` | **Required**. Nome de usuário |
+| `password` | `string` | **Required**. Senha de acesso |
 
 #### Active user
 
@@ -122,13 +117,7 @@ Para rodar esse projeto crie um arquivo .env com as seguintes váriaveis configu
   POST /active
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `email`      | `string` | **Required**. email de usuário |
-| `hash`      | `string` | **Required**. hash para ativar usuário |
-
-
-
-
-
-
+| Parameter | Type     | Description                            |
+| :-------- | :------- | :------------------------------------- |
+| `email`   | `string` | **Required**. email de usuário         |
+| `hash`    | `string` | **Required**. hash para ativar usuário |

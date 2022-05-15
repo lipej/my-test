@@ -2,7 +2,7 @@ import { Middleware } from '@presentation/protocols/middleware';
 import { FastifyReply, FastifyRequest } from 'fastify';
 
 export class FastifyMiddlewareAdapter<T> {
-  constructor(private middleware: Middleware<T>) { }
+  constructor(private middleware: Middleware<T>) {}
 
   adapt() {
     return async (request: FastifyRequest, reply: FastifyReply) => {

@@ -1,14 +1,14 @@
-import * as dotenv from 'dotenv'
+import * as dotenv from 'dotenv';
 
-dotenv.config()
+dotenv.config();
 
 export const getEnv = (name: keyof typeof envs) => {
-  const env = envs[name]
+  const env = envs[name];
 
-  if (!env) throw new Error('environment not available: ' + name)
+  if (!env) throw new Error('environment not available: ' + name);
 
-  return env
-}
+  return env;
+};
 
 export const envs = {
   sentryDsn: <string>process.env.SENTRY_DSN,
@@ -19,5 +19,5 @@ export const envs = {
   cryptSecret: <string>process.env.CRYPT_SECRET,
   sendgridKey: <string>process.env.SENDGRID_KEY,
   sendgridFrom: <string>process.env.SENDGRID_FROM,
-  frontUrl: <string>process.env.FRONT_URL,
-}
+  frontUrl: <string>process.env.FRONT_URL
+};

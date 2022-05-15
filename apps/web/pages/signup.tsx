@@ -5,11 +5,11 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
 type FormData = {
-  username: string
-  password: string
-  name: string
-  email: string
-}
+  username: string;
+  password: string;
+  name: string;
+  email: string;
+};
 
 export default function Signup() {
   const {
@@ -34,43 +34,46 @@ export default function Signup() {
 
   return (
     <>
-      <NavBar title='MyTest' />
+      <NavBar title="MyTest" />
       <Toaster />
-      <div className='flex justify-center items-center h-screen'>
-        <form className='flex flex-col' onSubmit={handleSubmit(onSubmit as any)}>
+      <div className="flex justify-center items-center h-screen">
+        <form
+          className="flex flex-col"
+          onSubmit={handleSubmit(onSubmit as any)}
+        >
           <Input
             register={register("name", { required: true, minLength: 5 })}
-            prop='name'
+            prop="name"
             error={
               errors.name ? "Por favor entre com o seu nome completo" : null
             }
-            name='nome'
+            name="nome"
           />
           <Input
             register={register("email", {
               required: true,
               pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
             })}
-            prop='email'
-            name='e-mail'
-            type='email'
+            prop="email"
+            name="e-mail"
+            type="email"
           />
           <Input
             register={register("username", { required: true })}
-            prop='username'
-            name='usuário'
+            prop="username"
+            name="usuário"
           />
           <Input
             register={register("password", {
               required: true,
               pattern: /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}$/,
             })}
-            prop='password'
-            name='senha'
-            type='password'
+            prop="password"
+            name="senha"
+            type="password"
           />
 
-          <input className='btn btn-sm mt-2' type='submit' />
+          <input className="btn btn-sm mt-2" type="submit" />
         </form>
       </div>
     </>

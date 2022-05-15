@@ -1,1 +1,1 @@
-export * from './fastify-router-adapter'
+export * from './fastify-router-adapter';

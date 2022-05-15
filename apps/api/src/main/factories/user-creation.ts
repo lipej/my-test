@@ -12,8 +12,8 @@ export class UserCreationControllerFactory {
     const db = new PrismaClient();
     const repo = new UserPrismaRepository(db);
     const cryptService = new CryptCryptoService(getEnv('cryptSecret'));
-    sgMail.setApiKey(getEnv('sendgridKey'))
-    const mailService = new SendgridMailSenderService(sgMail, getEnv('sendgridFrom'))
+    sgMail.setApiKey(getEnv('sendgridKey'));
+    const mailService = new SendgridMailSenderService(sgMail, getEnv('sendgridFrom'));
     const useCase = new UserCreationUseCase(repo, cryptService, mailService);
     return new UserCreationController(useCase);
   }

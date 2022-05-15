@@ -20,7 +20,7 @@ describe(UserCreationUseCase.name, () => {
   beforeEach(async () => {
     await db.user.deleteMany();
   });
-  
+
   afterAll(async () => {
     await db.user.deleteMany();
   });

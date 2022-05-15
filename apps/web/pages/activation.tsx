@@ -10,11 +10,11 @@ type Result = {
 export default function Activation({ status, email }: Result) {
   return (
     <>
-      <NavBar title='MyTest' />
-      <div className='flex justify-center items-center h-screen'>
-        <div className='m-4 max-w-screen-md'>
+      <NavBar title="MyTest" />
+      <div className="flex justify-center items-center h-screen">
+        <div className="m-4 max-w-screen-md">
           {status === "success" && (
-            <h1 className='text-4xl font-bold text-accent text-left'>
+            <h1 className="text-4xl font-bold text-accent text-left">
               Olá! =D
               <br />
               <br />
@@ -22,7 +22,7 @@ export default function Activation({ status, email }: Result) {
             </h1>
           )}
           {status === "error" && (
-            <h1 className='text-4xl font-bold text-error'>
+            <h1 className="text-4xl font-bold text-error">
               Ops! =[
               <br />
               <br />

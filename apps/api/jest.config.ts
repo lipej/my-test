@@ -11,12 +11,9 @@ export default {
     '@main/(.*)': '<rootDir>/src/main/$1',
     '@test/(.*)': '<rootDir>/test/$1',
     '@presentation/(.*)': '<rootDir>/src/presentation/$1',
-    '@app/(.*)': '<rootDir>/src/application/$1',  
+    '@app/(.*)': '<rootDir>/src/application/$1',
     '@domain/(.*)': '<rootDir>/src/domain/$1',
     '@infra/(.*)': '<rootDir>/src/infra/$1'
   },
-  collectCoverageFrom: [
-    'src/**/*.ts',
-    '!test/**/*.ts',
-  ]
-}
+  collectCoverageFrom: ['src/**/*.ts', '!test/**/*.ts']
+};

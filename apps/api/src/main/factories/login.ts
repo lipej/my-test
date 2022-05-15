@@ -11,7 +11,7 @@ export class LoginControllerFactory {
     const db = new PrismaClient();
     const repo = new UserPrismaRepository(db);
     const cryptService = new CryptCryptoService(getEnv('cryptSecret'));
-    const tokenService = new JwtSignToken(getEnv('jwtSecret'))
+    const tokenService = new JwtSignToken(getEnv('jwtSecret'));
     const useCase = new LoginUseCase(repo, cryptService, tokenService);
     return new LoginController(useCase);
   }
