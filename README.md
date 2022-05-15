@@ -80,7 +80,7 @@ Para rodar esse projeto crie um arquivo .env com as seguintes váriaveis configu
 
 `RUNNING_ENV` ambiente em que o serviço está rodando ex: production/staging
 
-`SENTRY_DNS` ambiente em que o serviço está rodando
+`SENTRY_DSN` ambiente em que o serviço está rodando
 
 ## API Reference
 
